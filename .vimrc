@@ -6,8 +6,14 @@ syntax on
 " For plug-ins to load correctly.
 filetype plugin indent on
 
+" set fzf
+set rtp+=/usr/local/opt/fzf
+
 " Turn off modelines
 set modelines=0
+
+" Set font
+" set guifont=Source\ Code\ Pro\ for\ Powerline:h50
 
 " Automatically wrap text that extends beyond the screen length.
 set wrap
@@ -72,9 +78,46 @@ set viminfo='100,<9999,s100
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
+" Map split view naviation
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <S-f> :FZF<Enter>
+nnoremap <S-q> :q<Enter>
+nnoremap <S-g><S-b> :GoBuild<Enter>
+map ; :
+
 " Automatically save and load folds
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview"
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript
+
+hi tsxCloseString guifg=#F99575
+hi tsxCloseTag guifg=#F99575
+hi tsxCloseTagName guifg=#F99575
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
+hi tsxAttrib guifg=#F8BD7F cterm=italic
+hi tsxTypeBraces guifg=#999999
+hi tsxTypes guifg=#666666
+
+let g:airline_theme='oceanicnext'
+let g:ariline_powerline_fonts=1
+let g:NERDTreeDirArrowExpandable='▸'
+let g:NERDTreeDirArrowCollapsible='▾'
+let g:NERDTreeShowHidden=1
+
+let g:terraform_fmt_on_save=1
+let g:netrw_banner=0
+let g:netrw_browse_split=1
+
+" Golang config
+let g:go_fmt_command='goimports'
+autocmd BufEnter *.go setlocal 
+  \ tabstop=8 shiftwidth=8 softtabstop=8 textwidth=80 noexpandtab
+  \ cindent cinoptions=:0,l1,t0,g0,(0,W8
+  \ filetype=go
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -83,4 +126,11 @@ map <C-n> :NERDTreeToggle<CR>
      source ~/.vimrc.plug
  endif
 
-colorscheme flattened_dark
+ " Call the .vimrc.colors file
+ if filereadable(expand("~/.vimrc.colors"))
+     source ~/.vimrc.colors
+ endif
+
+colorscheme molokai
+highlight Normal ctermbg=None
+hi Visual term=reverse cterm=reverse guibg=Blue

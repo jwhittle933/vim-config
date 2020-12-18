@@ -7,13 +7,21 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
 Plug 'preservim/nerdtree'
 Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ayu-theme/ayu-vim'
+Plug 'ayu-theme/ayu-vim', {'as': 'ayu'}
 Plug 'Badacadabra/vim-archery'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'whatyouhide/vim-gotham'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'posva/vim-vue'
+Plug 'w0rp/ale'
+Plug 'hashivim/vim-terraform'
+Plug 'udalov/kotlin-vim'
 
 call plug#end()

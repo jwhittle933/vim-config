@@ -48,6 +48,7 @@ setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
+setlocal cursorlineopt=both
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
@@ -105,6 +106,7 @@ setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=2
 setlocal noshortname
+setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
@@ -113,7 +115,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=
+setlocal statusline=%!airline#statusline(1)
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
@@ -131,17 +133,18 @@ setlocal textwidth=78
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
+setlocal wincolor=
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 17 - ((16 * winheight(0) + 27) / 55)
+let s:l = 22 - ((21 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-17
-normal! 030|
+22
+normal! 020|
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

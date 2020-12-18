@@ -9,10 +9,10 @@ vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*endf\%[unc
 nnoremap <buffer> <silent> [] m':call search('^\s*endf\%[unction]\>', "bW")
 vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")
 nnoremap <buffer> <silent> [[ m':call search('^\s*fu\%[nction]\>', "bW")
-nmap <buffer> \hp <Plug>(GitGutterPreviewHunk)
-nmap <buffer> \hu <Plug>(GitGutterUndoHunk)
-nmap <buffer> \hs <Plug>(GitGutterStageHunk)
 xmap <buffer> \hs <Plug>(GitGutterStageHunk)
+nmap <buffer> \hs <Plug>(GitGutterStageHunk)
+nmap <buffer> \hu <Plug>(GitGutterUndoHunk)
+nmap <buffer> \hp <Plug>(GitGutterPreviewHunk)
 nmap <buffer> ]c <Plug>(GitGutterNextHunk)
 vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
 nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
@@ -20,10 +20,10 @@ vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf\%[unc
 nnoremap <buffer> <silent> ][ m':call search('^\s*endf\%[unction]\>', "W")
 vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
 nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
-xmap <buffer> ac <Plug>(GitGutterTextObjectOuterVisual)
 omap <buffer> ac <Plug>(GitGutterTextObjectOuterPending)
-xmap <buffer> ic <Plug>(GitGutterTextObjectInnerVisual)
+xmap <buffer> ac <Plug>(GitGutterTextObjectOuterVisual)
 omap <buffer> ic <Plug>(GitGutterTextObjectInnerPending)
+xmap <buffer> ic <Plug>(GitGutterTextObjectInnerVisual)
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal noautoindent
@@ -48,6 +48,7 @@ setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
+setlocal cursorlineopt=both
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
@@ -105,6 +106,7 @@ setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=2
 setlocal noshortname
+setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
@@ -113,7 +115,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=
+setlocal statusline=%!airline#statusline(1)
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
@@ -131,28 +133,29 @@ setlocal textwidth=78
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
+setlocal wincolor=
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-71,72fold
-70,72fold
-70,72fold
-70,72fold
-70
+77,78fold
+76,78fold
+76,78fold
+76,78fold
+76
 normal! zo
-70
+76
 normal! zo
-70
+76
 normal! zo
-71
+77
 normal! zo
-let s:l = 11 - ((10 * winheight(0) + 27) / 55)
+let s:l = 38 - ((36 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-11
+38
 normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

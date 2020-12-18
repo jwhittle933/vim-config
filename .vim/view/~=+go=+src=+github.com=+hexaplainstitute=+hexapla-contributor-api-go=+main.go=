@@ -11,10 +11,10 @@ nmap <buffer> [c <Plug>(GitGutterPrevHunk)
 xnoremap <buffer> <silent> [[ :call go#textobj#FunctionJump('v', 'prev')
 onoremap <buffer> <silent> [[ :call go#textobj#FunctionJump('o', 'prev')
 nnoremap <buffer> <silent> [[ :call go#textobj#FunctionJump('n', 'prev')
-nmap <buffer> \hp <Plug>(GitGutterPreviewHunk)
-nmap <buffer> \hu <Plug>(GitGutterUndoHunk)
-nmap <buffer> \hs <Plug>(GitGutterStageHunk)
 xmap <buffer> \hs <Plug>(GitGutterStageHunk)
+nmap <buffer> \hs <Plug>(GitGutterStageHunk)
+nmap <buffer> \hu <Plug>(GitGutterUndoHunk)
+nmap <buffer> \hp <Plug>(GitGutterPreviewHunk)
 nmap <buffer> ]c <Plug>(GitGutterNextHunk)
 xnoremap <buffer> <silent> ]] :call go#textobj#FunctionJump('v', 'next')
 onoremap <buffer> <silent> ]] :call go#textobj#FunctionJump('o', 'next')
@@ -142,12 +142,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((1 * winheight(0) + 27) / 55)
+let s:l = 27 - ((26 * winheight(0) + 72) / 144)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2
-normal! 0
+27
+normal! 08|
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

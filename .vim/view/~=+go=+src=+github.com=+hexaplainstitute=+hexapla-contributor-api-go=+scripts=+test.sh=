@@ -3,15 +3,15 @@ argglobal
 let s:cpo_save=&cpo
 set cpo&vim
 nmap <buffer> [c <Plug>(GitGutterPrevHunk)
-nmap <buffer> \hp <Plug>(GitGutterPreviewHunk)
-nmap <buffer> \hu <Plug>(GitGutterUndoHunk)
-nmap <buffer> \hs <Plug>(GitGutterStageHunk)
 xmap <buffer> \hs <Plug>(GitGutterStageHunk)
+nmap <buffer> \hs <Plug>(GitGutterStageHunk)
+nmap <buffer> \hu <Plug>(GitGutterUndoHunk)
+nmap <buffer> \hp <Plug>(GitGutterPreviewHunk)
 nmap <buffer> ]c <Plug>(GitGutterNextHunk)
-xmap <buffer> ac <Plug>(GitGutterTextObjectOuterVisual)
 omap <buffer> ac <Plug>(GitGutterTextObjectOuterPending)
-xmap <buffer> ic <Plug>(GitGutterTextObjectInnerVisual)
+xmap <buffer> ac <Plug>(GitGutterTextObjectOuterVisual)
 omap <buffer> ic <Plug>(GitGutterTextObjectInnerPending)
+xmap <buffer> ic <Plug>(GitGutterTextObjectInnerVisual)
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal noautoindent
@@ -124,12 +124,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((2 * winheight(0) + 27) / 55)
+let s:l = 3 - ((2 * winheight(0) + 72) / 144)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 3
-normal! 0
+normal! 010|
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :
